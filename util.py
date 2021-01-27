@@ -113,6 +113,8 @@ def open_image(image_file):
                 os.system("deepin-image-viewer " + image_file)  # for deepin
             else:
                 os.system("eog " + image_file)  # for Linux
+                scmd = "zbarimg "+image_file+" > /tmp/qrcode.txt && qrencode -r /tmp/qrcode.txt -o - -t UTF8"
+                os.system(scmd)
         else:
             os.system("open " + image_file)  # for Mac
 
